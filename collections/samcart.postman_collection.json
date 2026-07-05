@@ -1,0 +1,192 @@
+{
+  "info": {
+    "name": "SamCart Public API",
+    "description": "Programmatic access to a SamCart marketplace's orders, products, customers, subscriptions, charges, and refunds. Base URL: https://api.samcart.com/v1. Authentication is via an API key passed in the sc-api header; keys are provisioned by the SamCart Support team (support@samcart.com). Some request paths and payloads are modeled by API Evangelist to REST convention; verify against developer.samcart.com.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "sc-api", "type": "string" },
+      { "key": "value", "value": "{{scApiKey}}", "type": "string" },
+      { "key": "in", "value": "header", "type": "string" }
+    ]
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://api.samcart.com/v1", "type": "string" },
+    { "key": "scApiKey", "value": "", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "List orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/orders?start_date=&end_date=", "host": ["{{baseUrl}}"], "path": ["orders"], "query": [{ "key": "start_date", "value": "" }, { "key": "end_date", "value": "" }] },
+            "description": "Returns all orders within the specified parameters, filterable by date range and funnel/upsell source."
+          }
+        },
+        {
+          "name": "Get an order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/orders/:order_id", "host": ["{{baseUrl}}"], "path": ["orders", ":order_id"], "variable": [{ "key": "order_id", "value": "" }] },
+            "description": "Retrieves an individual order by ID."
+          }
+        },
+        {
+          "name": "Update order custom fields",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"custom_fields\": {},\n  \"upsell_custom_fields\": {}\n}" },
+            "url": { "raw": "{{baseUrl}}/orders/:order_id", "host": ["{{baseUrl}}"], "path": ["orders", ":order_id"], "variable": [{ "key": "order_id", "value": "" }] },
+            "description": "Updates order-level and upsell custom fields. Path/payload modeled to REST convention."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "List products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/products", "host": ["{{baseUrl}}"], "path": ["products"] },
+            "description": "Returns the products in the marketplace."
+          }
+        },
+        {
+          "name": "Get a product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/products/:product_id", "host": ["{{baseUrl}}"], "path": ["products", ":product_id"], "variable": [{ "key": "product_id", "value": "" }] },
+            "description": "Retrieves an individual product by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customers",
+      "item": [
+        {
+          "name": "List customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/customers", "host": ["{{baseUrl}}"], "path": ["customers"] },
+            "description": "Returns the customers in the marketplace."
+          }
+        },
+        {
+          "name": "Get a customer",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/customers/:customer_id", "host": ["{{baseUrl}}"], "path": ["customers", ":customer_id"], "variable": [{ "key": "customer_id", "value": "" }] },
+            "description": "Retrieves an individual customer by ID."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Subscriptions",
+      "item": [
+        {
+          "name": "List subscriptions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/subscriptions", "host": ["{{baseUrl}}"], "path": ["subscriptions"] },
+            "description": "Returns all subscriptions within the specified parameters (bulk endpoint)."
+          }
+        },
+        {
+          "name": "Get a subscription",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/subscriptions/:subscription_id", "host": ["{{baseUrl}}"], "path": ["subscriptions", ":subscription_id"], "variable": [{ "key": "subscription_id", "value": "" }] },
+            "description": "Retrieves an individual subscription by ID."
+          }
+        },
+        {
+          "name": "Cancel a subscription",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/subscriptions/:subscription_id/cancel", "host": ["{{baseUrl}}"], "path": ["subscriptions", ":subscription_id", "cancel"], "variable": [{ "key": "subscription_id", "value": "" }] },
+            "description": "Cancels a subscription immediately. Path modeled to REST convention."
+          }
+        },
+        {
+          "name": "Schedule a subscription cancellation",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"cancel_at\": \"\"\n}" },
+            "url": { "raw": "{{baseUrl}}/subscriptions/:subscription_id/schedule-cancellation", "host": ["{{baseUrl}}"], "path": ["subscriptions", ":subscription_id", "schedule-cancellation"], "variable": [{ "key": "subscription_id", "value": "" }] },
+            "description": "Schedules a subscription to cancel at a future date. Path/payload modeled to REST convention."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Charges and Refunds",
+      "item": [
+        {
+          "name": "List charges",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/charges?status=", "host": ["{{baseUrl}}"], "path": ["charges"], "query": [{ "key": "status", "value": "" }] },
+            "description": "Returns charges, including failed charges when status=failed."
+          }
+        },
+        {
+          "name": "Get a charge",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/charges/:charge_id", "host": ["{{baseUrl}}"], "path": ["charges", ":charge_id"], "variable": [{ "key": "charge_id", "value": "" }] },
+            "description": "Retrieves an individual charge by ID."
+          }
+        },
+        {
+          "name": "Refund a charge",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/charges/:charge_id/refund", "host": ["{{baseUrl}}"], "path": ["charges", ":charge_id", "refund"], "variable": [{ "key": "charge_id", "value": "" }] },
+            "description": "Issues a full refund against an individual charge. Path modeled to REST convention."
+          }
+        },
+        {
+          "name": "List refunds",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/refunds", "host": ["{{baseUrl}}"], "path": ["refunds"] },
+            "description": "Retrieves all refunds for the marketplace."
+          }
+        },
+        {
+          "name": "Get a refund",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/refunds/:refund_id", "host": ["{{baseUrl}}"], "path": ["refunds", ":refund_id"], "variable": [{ "key": "refund_id", "value": "" }] },
+            "description": "Retrieves an individual refund by ID."
+          }
+        }
+      ]
+    }
+  ]
+}

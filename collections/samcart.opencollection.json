@@ -1,0 +1,182 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SamCart Public API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "apikey": { "key": "sc-api", "value": "{{scApiKey}}", "in": "header" }
+    }
+  },
+  "items": [
+    {
+      "info": { "name": "Orders", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List orders.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.samcart.com/v1/orders" },
+          "docs": "Returns all orders within the specified parameters, filterable by date range and funnel/upsell source."
+        },
+        {
+          "info": { "name": "Get an order.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/orders/:order_id",
+            "params": [
+              { "name": "order_id", "value": "", "type": "path", "description": "The ID of the order." }
+            ]
+          },
+          "docs": "Retrieves an individual order by ID."
+        },
+        {
+          "info": { "name": "Update order custom fields.", "type": "http" },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.samcart.com/v1/orders/:order_id",
+            "params": [
+              { "name": "order_id", "value": "", "type": "path", "description": "The ID of the order." }
+            ],
+            "body": { "type": "json", "data": "{ \"custom_fields\": {}, \"upsell_custom_fields\": {} }" }
+          },
+          "docs": "Updates order-level and upsell custom fields. Path/payload modeled to REST convention."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Products", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List products.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.samcart.com/v1/products" },
+          "docs": "Returns the products in the marketplace."
+        },
+        {
+          "info": { "name": "Get a product.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/products/:product_id",
+            "params": [
+              { "name": "product_id", "value": "", "type": "path", "description": "The ID of the product." }
+            ]
+          },
+          "docs": "Retrieves an individual product by ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Customers", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List customers.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.samcart.com/v1/customers" },
+          "docs": "Returns the customers in the marketplace."
+        },
+        {
+          "info": { "name": "Get a customer.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/customers/:customer_id",
+            "params": [
+              { "name": "customer_id", "value": "", "type": "path", "description": "The ID of the customer." }
+            ]
+          },
+          "docs": "Retrieves an individual customer by ID."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Subscriptions", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List subscriptions.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.samcart.com/v1/subscriptions" },
+          "docs": "Returns all subscriptions within the specified parameters (bulk endpoint)."
+        },
+        {
+          "info": { "name": "Get a subscription.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/subscriptions/:subscription_id",
+            "params": [
+              { "name": "subscription_id", "value": "", "type": "path", "description": "The ID of the subscription." }
+            ]
+          },
+          "docs": "Retrieves an individual subscription by ID."
+        },
+        {
+          "info": { "name": "Cancel a subscription.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.samcart.com/v1/subscriptions/:subscription_id/cancel",
+            "params": [
+              { "name": "subscription_id", "value": "", "type": "path", "description": "The ID of the subscription." }
+            ]
+          },
+          "docs": "Cancels a subscription immediately. Path modeled to REST convention."
+        },
+        {
+          "info": { "name": "Schedule a subscription cancellation.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.samcart.com/v1/subscriptions/:subscription_id/schedule-cancellation",
+            "params": [
+              { "name": "subscription_id", "value": "", "type": "path", "description": "The ID of the subscription." }
+            ],
+            "body": { "type": "json", "data": "{ \"cancel_at\": \"\" }" }
+          },
+          "docs": "Schedules a subscription to cancel at a future date. Path/payload modeled to REST convention."
+        }
+      ]
+    },
+    {
+      "info": { "name": "Charges and Refunds", "type": "folder" },
+      "items": [
+        {
+          "info": { "name": "List charges.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.samcart.com/v1/charges" },
+          "docs": "Returns charges, including failed charges when filtered by status."
+        },
+        {
+          "info": { "name": "Get a charge.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/charges/:charge_id",
+            "params": [
+              { "name": "charge_id", "value": "", "type": "path", "description": "The ID of the charge." }
+            ]
+          },
+          "docs": "Retrieves an individual charge by ID."
+        },
+        {
+          "info": { "name": "Refund a charge.", "type": "http" },
+          "http": {
+            "method": "POST",
+            "url": "https://api.samcart.com/v1/charges/:charge_id/refund",
+            "params": [
+              { "name": "charge_id", "value": "", "type": "path", "description": "The ID of the charge." }
+            ]
+          },
+          "docs": "Issues a full refund against an individual charge. Path modeled to REST convention."
+        },
+        {
+          "info": { "name": "List refunds.", "type": "http" },
+          "http": { "method": "GET", "url": "https://api.samcart.com/v1/refunds" },
+          "docs": "Retrieves all refunds for the marketplace."
+        },
+        {
+          "info": { "name": "Get a refund.", "type": "http" },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/refunds/:refund_id",
+            "params": [
+              { "name": "refund_id", "value": "", "type": "path", "description": "The ID of the refund." }
+            ]
+          },
+          "docs": "Retrieves an individual refund by ID."
+        }
+      ]
+    }
+  ]
+}

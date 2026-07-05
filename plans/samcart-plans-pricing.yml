@@ -1,0 +1,170 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: SamCart
+providerId: samcart
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- E-commerce
+- Checkout
+- Subscriptions
+- Plans
+- Pricing
+description: >-
+  SamCart is sold as a monthly (or discounted annual) SaaS subscription to the
+  checkout platform itself; the Public API is a capability layered on top of a
+  paid SamCart account rather than a separately metered product. As of the
+  review date SamCart publishes three current plan tiers - Core, Pro, and
+  Enterprise - having retired the older Launch / Grow / Scale tiers (kept below
+  for reference). Annual billing is discounted roughly 25% and every plan
+  includes a 7-day free trial. API access itself is provisioned by the SamCart
+  Support team on request (support@samcart.com) and has historically been gated
+  to a beta program and higher-tier accounts, so confirm API availability for a
+  given plan directly with SamCart.
+notes: >-
+  Prices are grounded in SamCart's published pricing and multiple 2026 pricing
+  breakdowns but change over time - verify current numbers at
+  https://www.samcart.com/pricing. Which exact plan unlocks the Public API is
+  not clearly published; treat API access as support-provisioned and possibly
+  higher-tier only.
+sources:
+- https://www.samcart.com/pricing
+- https://help.samcart.com/support/solutions/articles/60001525818-a-guide-to-samcart-s-updated-plans
+- https://help.samcart.com/support/solutions/articles/60000805533-samcart-api
+- https://developer.samcart.com/
+plans:
+- id: samcart-core
+  name: Core
+  type: paid
+  description: >-
+    Entry SamCart plan with unlimited products, the CheckoutOS checkout, page
+    and site builder, the Courses app and members area, cart abandonment,
+    custom domains, and SamCart's AI tools.
+  entries:
+  - label: Monthly Subscription
+    name: core_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '79.00'
+    currency: USD
+    userMultiplied: false
+  elements:
+  - name: Unlimited Products
+  - name: CheckoutOS Checkout
+  - name: Courses and Members Area
+  - name: Cart Abandonment
+  - name: Custom Domains
+- id: samcart-pro
+  name: Pro
+  type: paid
+  description: >-
+    Higher SamCart tier adding advanced selling and optimization features on top
+    of Core; the tier most likely to include broader integration and API access.
+  entries:
+  - label: Monthly Subscription
+    name: pro_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '199.00'
+    currency: USD
+    userMultiplied: false
+  elements:
+  - name: Everything in Core
+  - name: Advanced Subscription Tools
+  - name: Advanced Reporting
+  - name: Integrations
+- id: samcart-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom-priced plan for high-volume sellers, with advanced onboarding,
+    support, and negotiated terms. Contact SamCart sales.
+  entries:
+  - label: Custom Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: contact sales
+    userMultiplied: false
+  elements:
+  - name: Everything in Pro
+  - name: Custom Pricing
+  - name: Dedicated Support
+- id: samcart-legacy-launch
+  name: Launch (Legacy)
+  type: paid
+  description: >-
+    Retired entry tier, no longer sold to new customers; existing customers may
+    remain on it. Listed for historical reference.
+  entries:
+  - label: Monthly Subscription
+    name: legacy_launch_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '79.00'
+    currency: USD
+    userMultiplied: false
+  elements:
+  - name: Legacy Plan
+- id: samcart-legacy-grow
+  name: Grow (Legacy)
+  type: paid
+  description: >-
+    Retired mid tier, no longer sold to new customers. Listed for historical
+    reference.
+  entries:
+  - label: Monthly Subscription
+    name: legacy_grow_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '159.00'
+    currency: USD
+    userMultiplied: false
+  elements:
+  - name: Legacy Plan
+- id: samcart-legacy-scale
+  name: Scale (Legacy)
+  type: paid
+  description: >-
+    Retired top tier, no longer sold to new customers. This tier historically
+    exposed advanced features including API access. Listed for reference.
+  entries:
+  - label: Monthly Subscription
+    name: legacy_scale_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: '319.00'
+    currency: USD
+    userMultiplied: false
+  elements:
+  - name: Legacy Plan
+  - name: Historically Included API Access
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

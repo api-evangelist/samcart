@@ -1,0 +1,49 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: SamCart
+providerId: samcart
+created: '2026-07-05'
+modified: '2026-07-05'
+reconciled: false
+tags:
+- E-commerce
+- Checkout
+- Rate Limiting
+- Quotas
+description: >-
+  SamCart does not publish specific numeric rate limits for the Public API in
+  its public documentation or knowledge base as of the review date. The API is a
+  read-heavy REST interface over marketplace data (orders, products, customers,
+  subscriptions, charges, refunds) with a small set of write actions, and access
+  is provisioned per account by the SamCart Support team. Clients should page
+  through large result sets, filter by date range, and implement exponential
+  backoff on HTTP 429 responses.
+notes: >-
+  No documented per-minute or per-day request limits were found. Values here are
+  conventions, not confirmed limits. Confirm any account-specific throttling with
+  SamCart Support when API access is granted.
+sources:
+- https://developer.samcart.com/
+- https://help.samcart.com/support/solutions/articles/60000805533-samcart-api
+responseCodes:
+  throttled: 429
+limits:
+- name: Public API Requests
+  scope: account
+  metric: requests
+  limit: not published
+  notes: SamCart does not publish a numeric request-rate limit for the Public API.
+- name: List Pagination
+  scope: request
+  metric: records
+  limit: configurable via limit/offset
+  notes: List endpoints return paginated results controlled by limit and offset query parameters.
+policies:
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on 429 responses.
+- name: Date-Range Filtering
+  description: Use start_date/end_date filters to bound large order, charge, and subscription result sets rather than fetching everything.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

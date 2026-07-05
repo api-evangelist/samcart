@@ -1,0 +1,152 @@
+aid: samcart
+url: https://raw.githubusercontent.com/api-evangelist/samcart/refs/heads/main/apis.yml
+name: SamCart
+kind: company
+description: SamCart is a checkout and e-commerce platform for selling digital products,
+  courses, memberships, and physical goods directly to customers, built around a
+  high-converting CheckoutOS checkout, one-click upsells, subscriptions, and a
+  courses/members area. The SamCart Public API (v1) is a REST API at
+  https://api.samcart.com/v1 that gives programmatic read access to a marketplace's
+  orders, products, customers, subscriptions, charges, and refunds, plus write
+  actions to cancel or schedule cancellation of subscriptions, refund charges, and
+  update order custom fields. Authentication is via an sc-api API key header, and
+  API access is provisioned by the SamCart Support team rather than fully self-serve.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- E-commerce
+- Checkout
+- Payments
+- Subscriptions
+- Digital Products
+- Courses
+created: '2026-07-05'
+modified: '2026-07-05'
+specificationVersion: '0.19'
+apis:
+- aid: samcart:samcart-orders-api
+  name: SamCart Orders API
+  tags:
+  - Orders
+  - Sales
+  - Checkout
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.samcart.com/
+  baseURL: https://api.samcart.com/v1
+  properties:
+  - url: https://developer.samcart.com/
+    type: Documentation
+  - url: https://help.samcart.com/support/solutions/articles/60000805533-samcart-api
+    type: APIReference
+  - url: openapi/samcart-openapi.yml
+    type: OpenAPI
+  - url: collections/samcart.postman_collection.json
+    type: PostmanCollection
+  - url: collections/samcart.opencollection.json
+    type: OpenCollection
+  description: Retrieve orders for a marketplace, filtered by date range or by
+    funnel/upsell source, retrieve an individual order, and update order-level
+    and upsell custom fields. Orders capture products purchased, customer, totals,
+    and upsell attribution.
+- aid: samcart:samcart-products-api
+  name: SamCart Products API
+  tags:
+  - Products
+  - Catalog
+  - Digital Products
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.samcart.com/
+  baseURL: https://api.samcart.com/v1
+  properties:
+  - url: https://developer.samcart.com/
+    type: Documentation
+  - url: openapi/samcart-openapi.yml
+    type: OpenAPI
+  - url: collections/samcart.postman_collection.json
+    type: PostmanCollection
+  - url: collections/samcart.opencollection.json
+    type: OpenCollection
+  description: List the products in a SamCart marketplace and retrieve an individual
+    product, including pricing, product type (one-time, subscription, or payment
+    plan), and configuration used on checkout pages.
+- aid: samcart:samcart-customers-api
+  name: SamCart Customers API
+  tags:
+  - Customers
+  - CRM
+  - Contacts
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.samcart.com/
+  baseURL: https://api.samcart.com/v1
+  properties:
+  - url: https://developer.samcart.com/
+    type: Documentation
+  - url: openapi/samcart-openapi.yml
+    type: OpenAPI
+  - url: collections/samcart.postman_collection.json
+    type: PostmanCollection
+  - url: collections/samcart.opencollection.json
+    type: OpenCollection
+  description: List customers in a marketplace and retrieve an individual customer
+    by ID, including contact details and the orders, charges, and subscriptions
+    associated with that customer.
+- aid: samcart:samcart-subscriptions-api
+  name: SamCart Subscriptions API
+  tags:
+  - Subscriptions
+  - Recurring Billing
+  - Retention
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.samcart.com/
+  baseURL: https://api.samcart.com/v1
+  properties:
+  - url: https://developer.samcart.com/
+    type: Documentation
+  - url: openapi/samcart-openapi.yml
+    type: OpenAPI
+  - url: collections/samcart.postman_collection.json
+    type: PostmanCollection
+  - url: collections/samcart.opencollection.json
+    type: OpenCollection
+  description: Return all subscriptions within specified parameters, retrieve an
+    individual subscription with its billing schedule and status, cancel a
+    subscription immediately, or schedule a subscription cancellation for a future
+    billing date.
+- aid: samcart:samcart-charges-refunds-api
+  name: SamCart Charges and Refunds API
+  tags:
+  - Charges
+  - Refunds
+  - Payments
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developer.samcart.com/
+  baseURL: https://api.samcart.com/v1
+  properties:
+  - url: https://developer.samcart.com/
+    type: Documentation
+  - url: openapi/samcart-openapi.yml
+    type: OpenAPI
+  - url: collections/samcart.postman_collection.json
+    type: PostmanCollection
+  - url: collections/samcart.opencollection.json
+    type: OpenCollection
+  description: Retrieve charges (including failed charges) and individual charges
+    for a marketplace, list all refunds or an individual refund, and issue a full
+    refund against an individual charge.
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/samcart
+- type: Website
+  url: https://www.samcart.com/
+- type: Documentation
+  url: https://developer.samcart.com/
+- type: Plans
+  url: plans/samcart-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/samcart-rate-limits.yml
+- type: FinOps
+  url: finops/samcart-finops.yml
+- type: Blog
+  url: https://www.samcart.com/blog
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
