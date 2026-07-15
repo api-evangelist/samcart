@@ -133,6 +133,8 @@ apis:
     for a marketplace, list all refunds or an individual refund, and issue a full
     refund against an individual charge.
 common:
+- type: AgenticAccess
+  url: agentic-access/samcart-agentic-access.yml
 - type: DomainSecurity
   url: security/samcart-domain-security.yml
 - type: Authentication
