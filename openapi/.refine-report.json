@@ -1,0 +1,24 @@
+{
+  "provider": "samcart",
+  "sources": [
+    "samcart-charges-api-openapi.yml",
+    "samcart-customers-api-openapi.yml",
+    "samcart-orders-api-openapi.yml",
+    "samcart-products-api-openapi.yml",
+    "samcart-refunds-api-openapi.yml",
+    "samcart-subscriptions-api-openapi.yml"
+  ],
+  "outputs": [
+    "samcart-charges-api-openapi.yml",
+    "samcart-customers-api-openapi.yml",
+    "samcart-orders-api-openapi.yml",
+    "samcart-products-api-openapi.yml",
+    "samcart-refunds-api-openapi.yml",
+    "samcart-subscriptions-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
