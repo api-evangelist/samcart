@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SamCart Public Charges Refunds API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sc-api",
+      "value": "{{sc-api}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Refunds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List refunds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/refunds",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start of the date range filter (ISO 8601)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End of the date range filter (ISO 8601)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Retrieves all refunds for the marketplace within the specified parameters."
+        },
+        {
+          "info": {
+            "name": "Get a refund",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/refunds/:refund_id",
+            "params": [
+              {
+                "name": "refund_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the refund."
+              }
+            ]
+          },
+          "docs": "Retrieves an individual refund by ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

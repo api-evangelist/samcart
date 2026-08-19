@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SamCart Public Charges Subscriptions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sc-api",
+      "value": "{{sc-api}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subscriptions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List subscriptions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/subscriptions",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start of the date range filter (ISO 8601)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End of the date range filter (ISO 8601)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter subscriptions by status."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns all subscriptions within the specified parameters. This is the bulk subscriptions endpoint."
+        },
+        {
+          "info": {
+            "name": "Get a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/subscriptions/:subscription_id",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscription."
+              }
+            ]
+          },
+          "docs": "Retrieves an individual subscription by ID."
+        },
+        {
+          "info": {
+            "name": "Cancel a subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.samcart.com/v1/subscriptions/:subscription_id/cancel",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscription."
+              }
+            ]
+          },
+          "docs": "Cancels a subscription immediately."
+        },
+        {
+          "info": {
+            "name": "Schedule a subscription cancellation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.samcart.com/v1/subscriptions/:subscription_id/schedule-cancellation",
+            "params": [
+              {
+                "name": "subscription_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscription."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Schedules a subscription to cancel at a future date, typically the end of the current billing period."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

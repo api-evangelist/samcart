@@ -1,0 +1,107 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SamCart Public Charges API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "sc-api",
+      "value": "{{sc-api}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Charges",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List charges",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/charges",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start of the date range filter (ISO 8601)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End of the date range filter (ISO 8601)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter charges by status, for example to return failed charges."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return per page."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination."
+              }
+            ]
+          },
+          "docs": "Returns charges for the marketplace within the specified parameters, including failed charges when requested."
+        },
+        {
+          "info": {
+            "name": "Get a charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.samcart.com/v1/charges/:charge_id",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the charge."
+              }
+            ]
+          },
+          "docs": "Retrieves an individual charge by ID."
+        },
+        {
+          "info": {
+            "name": "Refund a charge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.samcart.com/v1/charges/:charge_id/refund",
+            "params": [
+              {
+                "name": "charge_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the charge."
+              }
+            ]
+          },
+          "docs": "Issues a full refund against an individual charge."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
