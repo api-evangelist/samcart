@@ -11,6 +11,18 @@ description: SamCart is a checkout and e-commerce platform for selling digital p
   actions to cancel or schedule cancellation of subscriptions, refund charges, and
   update order custom fields. Authentication is via an sc-api API key header, and
   API access is provisioned by the SamCart Support team rather than fully self-serve.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
