@@ -1,0 +1,1 @@
+{"resource":"https:\/\/mcp.samcart.com","authorization_servers":["https:\/\/mcp.samcart.com"],"scopes_supported":["full_access","read_only","charges.read","customers.read","orders.read","products.read","subscriptions.read","funnels.read","upsells.read","coupons.read","orders.write","subscriptions.write","charges.write","profile"],"bearer_methods_supported":["header"]}

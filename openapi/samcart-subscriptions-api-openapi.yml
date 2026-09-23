@@ -1,9 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: SamCart Public Charges Subscriptions API
-  description: 'The SamCart Public API (v1) provides programmatic access to a SamCart marketplace''s commerce data - orders, products, customers, subscriptions, charges, and refunds - over REST at https://api.samcart.com/v1. Read endpoints return lists and individual records; write endpoints cancel or schedule cancellation of subscriptions, issue full refunds against charges, and update order custom fields. Authentication uses an API key passed in the `sc-api` header. API keys are provisioned by the SamCart Support team (contact support@samcart.com); the API is not fully self-serve.
-
-    NOTE: This description is modeled by API Evangelist from SamCart''s public documentation, knowledge base, and third-party integration guides. Resource names, the base URL, the sc-api authentication header, and the presence of orders / products / customers / subscriptions / charges / refunds endpoints are grounded in those sources. Exact path segments, query parameters, and schema fields are honestly modeled to REST convention and should be verified against developer.samcart.com. Endpoints are marked with `x-endpoint-modeled` where the precise path or shape is inferred.'
+  title: SamCart Public Subscriptions API
+  description: The SamCart Public API (v1) provides programmatic access to a SamCart marketplace's commerce data - orders, products, customers, subscriptions, charges, and refunds - over REST at https://api.samcart.com/v1.
   version: '1.0'
   contact:
     name: SamCart
@@ -131,46 +129,6 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return per page.
-      schema:
-        type: integer
-        default: 50
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-        default: 0
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      description: End of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
-    StartDate:
-      name: start_date
-      in: query
-      required: false
-      description: Start of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      description: The ID of the subscription.
-      schema:
-        type: string
   responses:
     Unauthorized:
       description: Missing or invalid sc-api API key.
@@ -184,7 +142,56 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
+  parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return per page.
+      schema:
+        type: integer
+        default: 50
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      description: End of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      description: The ID of the subscription.
+      schema:
+        type: string
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      description: Start of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
   schemas:
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
     Subscription:
       type: object
       properties:
@@ -213,15 +220,6 @@ components:
         cancel_at:
           type: string
           format: date-time
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
     Error:
       type: object
       properties:
