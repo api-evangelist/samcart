@@ -99,6 +99,25 @@ paths:
           $ref: '#/components/responses/ValidationError'
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
     Refund:
       type: object
       properties:
@@ -113,15 +132,6 @@ components:
         created_at:
           type: string
           format: date-time
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
     Charge:
       type: object
       properties:
@@ -146,25 +156,55 @@ components:
         created_at:
           type: string
           format: date-time
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
+  parameters:
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      description: Start of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      description: The ID of the charge.
+      schema:
+        type: string
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      description: End of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return per page.
+      schema:
+        type: integer
+        default: 50
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
   responses:
-    Unauthorized:
-      description: Missing or invalid sc-api API key.
+    ValidationError:
+      description: The request payload failed validation.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    ValidationError:
-      description: The request payload failed validation.
+    Unauthorized:
+      description: Missing or invalid sc-api API key.
       content:
         application/json:
           schema:
@@ -175,46 +215,6 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return per page.
-      schema:
-        type: integer
-        default: 50
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      description: End of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-        default: 0
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      description: The ID of the charge.
-      schema:
-        type: string
-    StartDate:
-      name: start_date
-      in: query
-      required: false
-      description: Start of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
   securitySchemes:
     scApiKey:
       type: apiKey

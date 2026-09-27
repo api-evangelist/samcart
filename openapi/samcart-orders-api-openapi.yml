@@ -104,75 +104,7 @@ paths:
         '422':
           $ref: '#/components/responses/ValidationError'
 components:
-  responses:
-    Unauthorized:
-      description: Missing or invalid sc-api API key.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    ValidationError:
-      description: The request payload failed validation.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-  parameters:
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return per page.
-      schema:
-        type: integer
-        default: 50
-    OrderId:
-      name: order_id
-      in: path
-      required: true
-      description: The ID of the order.
-      schema:
-        type: string
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      description: End of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
-    Offset:
-      name: offset
-      in: query
-      required: false
-      description: Number of records to skip for pagination.
-      schema:
-        type: integer
-        default: 0
-    StartDate:
-      name: start_date
-      in: query
-      required: false
-      description: Start of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
   schemas:
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
     Error:
       type: object
       properties:
@@ -183,6 +115,15 @@ components:
               type: string
             message:
               type: string
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
     Order:
       type: object
       properties:
@@ -210,6 +151,65 @@ components:
         upsell_custom_fields:
           type: object
           additionalProperties: true
+  parameters:
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      description: Start of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
+    OrderId:
+      name: order_id
+      in: path
+      required: true
+      description: The ID of the order.
+      schema:
+        type: string
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return per page.
+      schema:
+        type: integer
+        default: 50
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      description: End of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
+    Offset:
+      name: offset
+      in: query
+      required: false
+      description: Number of records to skip for pagination.
+      schema:
+        type: integer
+        default: 0
+  responses:
+    ValidationError:
+      description: The request payload failed validation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Missing or invalid sc-api API key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     scApiKey:
       type: apiKey
