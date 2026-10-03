@@ -105,16 +105,6 @@ paths:
           $ref: '#/components/responses/ValidationError'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
     Pagination:
       type: object
       properties:
@@ -151,7 +141,25 @@ components:
         upsell_custom_fields:
           type: object
           additionalProperties: true
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
   parameters:
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return per page.
+      schema:
+        type: integer
+        default: 50
     StartDate:
       name: start_date
       in: query
@@ -167,22 +175,6 @@ components:
       description: The ID of the order.
       schema:
         type: string
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return per page.
-      schema:
-        type: integer
-        default: 50
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      description: End of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
     Offset:
       name: offset
       in: query
@@ -191,15 +183,23 @@ components:
       schema:
         type: integer
         default: 0
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      description: End of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
   responses:
-    ValidationError:
-      description: The request payload failed validation.
+    Unauthorized:
+      description: Missing or invalid sc-api API key.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid sc-api API key.
+    ValidationError:
+      description: The request payload failed validation.
       content:
         application/json:
           schema:

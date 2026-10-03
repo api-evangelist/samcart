@@ -130,16 +130,6 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
     Pagination:
       type: object
       properties:
@@ -177,30 +167,17 @@ components:
         cancel_at:
           type: string
           format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
   parameters:
-    SubscriptionId:
-      name: subscription_id
-      in: path
-      required: true
-      description: The ID of the subscription.
-      schema:
-        type: string
-    StartDate:
-      name: start_date
-      in: query
-      required: false
-      description: Start of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      description: End of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
     Limit:
       name: limit
       in: query
@@ -209,6 +186,14 @@ components:
       schema:
         type: integer
         default: 50
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      description: Start of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
     Offset:
       name: offset
       in: query
@@ -217,6 +202,21 @@ components:
       schema:
         type: integer
         default: 0
+    SubscriptionId:
+      name: subscription_id
+      in: path
+      required: true
+      description: The ID of the subscription.
+      schema:
+        type: string
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      description: End of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
   responses:
     Unauthorized:
       description: Missing or invalid sc-api API key.

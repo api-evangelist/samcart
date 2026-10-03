@@ -99,16 +99,6 @@ paths:
           $ref: '#/components/responses/ValidationError'
 components:
   schemas:
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
     Pagination:
       type: object
       properties:
@@ -118,20 +108,6 @@ components:
           type: integer
         total:
           type: integer
-    Refund:
-      type: object
-      properties:
-        id:
-          type: string
-        charge_id:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-        created_at:
-          type: string
-          format: date-time
     Charge:
       type: object
       properties:
@@ -156,15 +132,31 @@ components:
         created_at:
           type: string
           format: date-time
+    Refund:
+      type: object
+      properties:
+        id:
+          type: string
+        charge_id:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
   parameters:
-    StartDate:
-      name: start_date
-      in: query
-      required: false
-      description: Start of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
     ChargeId:
       name: charge_id
       in: path
@@ -172,14 +164,6 @@ components:
       description: The ID of the charge.
       schema:
         type: string
-    EndDate:
-      name: end_date
-      in: query
-      required: false
-      description: End of the date range filter (ISO 8601).
-      schema:
-        type: string
-        format: date
     Limit:
       name: limit
       in: query
@@ -188,6 +172,14 @@ components:
       schema:
         type: integer
         default: 50
+    StartDate:
+      name: start_date
+      in: query
+      required: false
+      description: Start of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
     Offset:
       name: offset
       in: query
@@ -196,15 +188,23 @@ components:
       schema:
         type: integer
         default: 0
+    EndDate:
+      name: end_date
+      in: query
+      required: false
+      description: End of the date range filter (ISO 8601).
+      schema:
+        type: string
+        format: date
   responses:
-    ValidationError:
-      description: The request payload failed validation.
+    Unauthorized:
+      description: Missing or invalid sc-api API key.
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Missing or invalid sc-api API key.
+    ValidationError:
+      description: The request payload failed validation.
       content:
         application/json:
           schema:
