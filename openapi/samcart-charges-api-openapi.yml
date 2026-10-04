@@ -98,80 +98,7 @@ paths:
         '422':
           $ref: '#/components/responses/ValidationError'
 components:
-  schemas:
-    Pagination:
-      type: object
-      properties:
-        limit:
-          type: integer
-        offset:
-          type: integer
-        total:
-          type: integer
-    Charge:
-      type: object
-      properties:
-        id:
-          type: string
-        order_id:
-          type: string
-        subscription_id:
-          type: string
-        customer_id:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-        status:
-          type: string
-          enum:
-          - succeeded
-          - failed
-          - refunded
-        created_at:
-          type: string
-          format: date-time
-    Refund:
-      type: object
-      properties:
-        id:
-          type: string
-        charge_id:
-          type: string
-        amount:
-          type: number
-        currency:
-          type: string
-        created_at:
-          type: string
-          format: date-time
-    Error:
-      type: object
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
   parameters:
-    ChargeId:
-      name: charge_id
-      in: path
-      required: true
-      description: The ID of the charge.
-      schema:
-        type: string
-    Limit:
-      name: limit
-      in: query
-      required: false
-      description: Maximum number of records to return per page.
-      schema:
-        type: integer
-        default: 50
     StartDate:
       name: start_date
       in: query
@@ -196,7 +123,28 @@ components:
       schema:
         type: string
         format: date
+    Limit:
+      name: limit
+      in: query
+      required: false
+      description: Maximum number of records to return per page.
+      schema:
+        type: integer
+        default: 50
+    ChargeId:
+      name: charge_id
+      in: path
+      required: true
+      description: The ID of the charge.
+      schema:
+        type: string
   responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
     Unauthorized:
       description: Missing or invalid sc-api API key.
       content:
@@ -209,12 +157,64 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: The requested resource was not found.
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: integer
+        offset:
+          type: integer
+        total:
+          type: integer
+    Error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+    Refund:
+      type: object
+      properties:
+        id:
+          type: string
+        charge_id:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+    Charge:
+      type: object
+      properties:
+        id:
+          type: string
+        order_id:
+          type: string
+        subscription_id:
+          type: string
+        customer_id:
+          type: string
+        amount:
+          type: number
+        currency:
+          type: string
+        status:
+          type: string
+          enum:
+          - succeeded
+          - failed
+          - refunded
+        created_at:
+          type: string
+          format: date-time
   securitySchemes:
     scApiKey:
       type: apiKey
