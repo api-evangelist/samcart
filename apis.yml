@@ -170,6 +170,9 @@ apis:
   - type: OpenCollection
     url: collections/samcart.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/samcart-capability-edges.yml
+  name: SamCart Business Capability Map
 - type: AgenticAccess
   url: agentic-access/samcart-agentic-access.yml
 - type: DomainSecurity
