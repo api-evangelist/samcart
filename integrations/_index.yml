@@ -331,7 +331,7 @@
   arazzo: null
 - slug: samcart-dropbox-sign
   label: Dropbox Sign
-  partner: dropbox-sign
+  partner: hellosign
   partner_name: Dropbox Sign
   category: Signatures
   type: marketplace

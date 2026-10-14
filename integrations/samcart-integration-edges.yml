@@ -333,7 +333,8 @@ edges:
   category: CRM (Customer Relationship Management)
   partner_url: https://www.dubsado.com/
 - partner_name: Dropbox Sign
-  partner: dropbox-sign
+  partner: hellosign
+  partner_note: dropbox-sign consolidated into hellosign 2026-10-14 (duplicate profile; approved by Kin Lane)
   partner_match: name-exact
   partner_candidate: null
   type: marketplace
