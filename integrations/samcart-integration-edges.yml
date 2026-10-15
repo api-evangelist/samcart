@@ -6,6 +6,7 @@ checked:
 - https://composio.dev/toolkits/samcart
 - https://monid.ai/tools/samcart
 - https://n8n.io/integrations/samcart/
+- https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/samcart/integrations
 summary: null
 marketplace_apps:
@@ -366,6 +367,31 @@ edges:
   direction: third-party
   category: Online Courses
   partner_url: https://membervault.co/
+- partner_name: Zapier
+  partner: zapier
+  partner_match: aggregator
+  type: marketplace
+  marketplace: zapier-directory
+  channel: ipaas-listing
+  relationship: ipaas-bridge
+  direction: third-party
+  evidence: https://zapier.com/apps/samcart/integrations
+  category: null
+  contract_reference:
+    register: Zapier app directory (zapier.com/api/v4/apps)
+    spec_file: null
+    role: ipaas-connector:zapier
+    registered_name: SamCart
+    matched_domain: samcart.com
+    matched_by: domain
+    detected_by: sweep-workflow-automation.py
+    detected: '2026-10-15'
+    signal_note: one edge per (provider, platform); actions, triggers and usage counts are context, never read
+    app_slug: samcart
+    beta: false
+    builder: unknown (not in the directory record)
+  detected_by: sweep-workflow-automation.py
+  first_seen: '2026-10-15'
 templates:
 - title: Log SamCart orders to new rows in a Google Sheets spreadsheet
   url: https://zapier.com/apps/google-sheets/integrations/samcart/16061/log-samcart-orders-to-new-rows-in-a-google-sheets-spreadsheet
