@@ -15,6 +15,7 @@
   evidence: https://zapier.com/apps/google-sheets/integrations/samcart/16061/log-samcart-orders-to-new-rows-in-a-google-sheets-spreadsheet
   template: https://zapier.com/apps/google-sheets/integrations/samcart/16061/log-samcart-orders-to-new-rows-in-a-google-sheets-spreadsheet
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
   arazzo: null
 - slug: samcart-create-or-update-flodesk-subscribers-from-new-samcart-orders
@@ -28,6 +29,7 @@
   evidence: https://zapier.com/apps/flodesk/integrations/samcart/851568/create-or-update-flodesk-subscribers-from-new-samcart-orders
   template: https://zapier.com/apps/flodesk/integrations/samcart/851568/create-or-update-flodesk-subscribers-from-new-samcart-orders
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: samcart-create-proof-conversions-from-new-samcart-orders
@@ -42,6 +44,7 @@
   evidence: https://zapier.com/apps/proof/integrations/samcart/1231577/create-proof-conversions-from-new-samcart-orders
   template: https://zapier.com/apps/proof/integrations/samcart/1231577/create-proof-conversions-from-new-samcart-orders
   source: template
+  relationship: ipaas-bridge
   status: pending-partner-spec
   arazzo: null
 - slug: samcart-add-new-samcart-leads-to-a-group-in-mailerlite-as-subscribers
@@ -56,312 +59,8 @@
   evidence: https://zapier.com/apps/mailerlite/integrations/samcart/255653431/add-new-samcart-leads-to-a-group-in-mailerlite-as-subscribers
   template: https://zapier.com/apps/mailerlite/integrations/samcart/255653431/add-new-samcart-leads-to-a-group-in-mailerlite-as-subscribers
   source: template
+  relationship: ipaas-bridge
   status: pending-generation
-  arazzo: null
-- slug: samcart-kajabi
-  label: Kajabi
-  partner: kajabi
-  partner_name: Kajabi
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/kajabi
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-teachable
-  label: Teachable
-  partner: teachable
-  partner_name: Teachable
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/teachable
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-mailchimp
-  label: Mailchimp
-  partner: mailchimp
-  partner_name: Mailchimp
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/mailchimp
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-circle
-  label: Circle
-  partner: circle-community
-  partner_name: Circle
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/circle
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-hubspot
-  label: HubSpot
-  partner: hubspot
-  partner_name: HubSpot
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/hubspot
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-skool
-  label: Skool
-  partner: skool
-  partner_name: Skool
-  category: Education
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/skool
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-kartra
-  label: Kartra
-  partner: kartra
-  partner_name: Kartra
-  category: Marketing Automation
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/kartra
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-keap
-  label: Keap
-  partner: keap
-  partner_name: Keap
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/keap
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-drip
-  label: Drip
-  partner: drip
-  partner_name: Drip
-  category: Drip Emails
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/drip
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-aweber
-  label: AWeber
-  partner: aweber
-  partner_name: AWeber
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/aweber
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-systeme-io
-  label: systeme.io
-  partner_name: systeme.io
-  category: Marketing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/systemeio
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-clickup
-  label: ClickUp
-  partner: clickup
-  partner_name: ClickUp
-  category: Project Management
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/clickup
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-mailerlite-classic
-  label: MailerLite Classic
-  partner: mailerlite
-  partner_name: MailerLite Classic
-  category: Email Newsletters
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/mailerlite-classic
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-shipstation
-  label: ShipStation
-  partner: shipstation
-  partner_name: ShipStation
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/shipstation
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-podia
-  label: Podia
-  partner: podia
-  partner_name: Podia
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/podia
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-shopify
-  label: Shopify
-  partner: shopify
-  partner_name: Shopify
-  category: eCommerce
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/shopify
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-thinkific
-  label: Thinkific
-  partner: thinkific
-  partner_name: Thinkific
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/thinkific
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-manychat
-  label: Manychat
-  partner: manychat
-  partner_name: Manychat
-  category: Social Media Marketing
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/manychat
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-facebook-conversions
-  label: Facebook Conversions
-  partner_name: Facebook Conversions
-  category: Ads & Conversion
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/facebook-conversions
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-teachery
-  label: Teachery
-  partner_name: Teachery
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/teachery
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-uscreen
-  label: Uscreen
-  partner_name: Uscreen
-  category: Video & Audio
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/uscreen
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-mighty-networks
-  label: Mighty Networks
-  partner: mighty-networks
-  partner_name: Mighty Networks
-  category: Website Builders
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/mightynetworks
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-dubsado
-  label: Dubsado
-  partner_name: Dubsado
-  category: CRM (Customer Relationship Management)
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/dubsado
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-dropbox-sign
-  label: Dropbox Sign
-  partner: hellosign
-  partner_name: Dropbox Sign
-  category: Signatures
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/dropbox-sign
-  source: edge
-  status: pending-generation
-  arazzo: null
-- slug: samcart-passion-io
-  label: Passion.io
-  partner_name: Passion.io
-  category: App Builder
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/passion-io
-  source: edge
-  status: pending-partner-spec
-  arazzo: null
-- slug: samcart-membervault
-  label: MemberVault
-  partner_name: MemberVault
-  category: Online Courses
-  type: marketplace
-  marketplace: zapier
-  channel: ipaas-usage
-  evidence: https://zapier.com/apps/samcart/integrations/membervault
-  source: edge
-  status: pending-partner-spec
   arazzo: null
 - slug: samcart-zapier
   label: Zapier
@@ -387,4 +86,337 @@
     beta: false
     builder: unknown (not in the directory record)
   status: not-a-workflow
+  arazzo: null
+- slug: samcart-kajabi
+  label: Kajabi
+  partner: kajabi
+  partner_name: Kajabi
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/kajabi
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-teachable
+  label: Teachable
+  partner: teachable
+  partner_name: Teachable
+  category: Online Courses
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/teachable
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-mailchimp
+  label: Mailchimp
+  partner: mailchimp
+  partner_name: Mailchimp
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/mailchimp
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-circle
+  label: Circle
+  partner: circle-community
+  partner_name: Circle
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/circle
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-hubspot
+  label: HubSpot
+  partner: hubspot
+  partner_name: HubSpot
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/hubspot
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-skool
+  label: Skool
+  partner: skool
+  partner_name: Skool
+  category: Education
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/skool
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-kartra
+  label: Kartra
+  partner: kartra
+  partner_name: Kartra
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/kartra
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-keap
+  label: Keap
+  partner: keap
+  partner_name: Keap
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/keap
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-drip
+  label: Drip
+  partner: drip
+  partner_name: Drip
+  category: Drip Emails
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/drip
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-aweber
+  label: AWeber
+  partner: aweber
+  partner_name: AWeber
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/aweber
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-klaviyo
+  label: Klaviyo
+  partner: klaviyo
+  partner_name: Klaviyo
+  category: Marketing Automation
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/klaviyo
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-systeme-io
+  label: systeme.io
+  partner_name: systeme.io
+  category: Marketing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/systemeio
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-clickup
+  label: ClickUp
+  partner: clickup
+  partner_name: ClickUp
+  category: Project Management
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/clickup
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-mailerlite-classic
+  label: MailerLite Classic
+  partner: mailerlite
+  partner_name: MailerLite Classic
+  category: Email Newsletters
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/mailerlite-classic
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-shipstation
+  label: ShipStation
+  partner: shipstation
+  partner_name: ShipStation
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/shipstation
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-podia
+  label: Podia
+  partner: podia
+  partner_name: Podia
+  category: Online Courses
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/podia
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-shopify
+  label: Shopify
+  partner: shopify
+  partner_name: Shopify
+  category: eCommerce
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/shopify
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-thinkific
+  label: Thinkific
+  partner: thinkific
+  partner_name: Thinkific
+  category: Online Courses
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/thinkific
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-teachery
+  label: Teachery
+  partner_name: Teachery
+  category: Online Courses
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/teachery
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-manychat
+  label: Manychat
+  partner: manychat
+  partner_name: Manychat
+  category: Social Media Marketing
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/manychat
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-facebook-conversions
+  label: Facebook Conversions
+  partner: facebook
+  partner_name: Facebook Conversions
+  category: Ads & Conversion
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/facebook-conversions
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-mighty-networks
+  label: Mighty Networks
+  partner: mighty-networks
+  partner_name: Mighty Networks
+  category: Website Builders
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/mightynetworks
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-generation
+  arazzo: null
+- slug: samcart-uscreen
+  label: Uscreen
+  partner_name: Uscreen
+  category: Video & Audio
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/uscreen
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-dubsado
+  label: Dubsado
+  partner_name: Dubsado
+  category: CRM (Customer Relationship Management)
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/dubsado
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-passion-io
+  label: Passion.io
+  partner_name: Passion.io
+  category: App Builder
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/passion-io
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
+  arazzo: null
+- slug: samcart-dropbox-sign
+  label: Dropbox Sign
+  partner: dropbox-sign
+  partner_name: Dropbox Sign
+  category: Signatures
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/samcart/integrations/dropbox-sign
+  source: edge
+  relationship: ipaas-bridge
+  status: pending-partner-spec
   arazzo: null
