@@ -8,6 +8,13 @@ checked:
 - https://n8n.io/integrations/samcart/
 - https://zapier.com/api/v4/apps/
 - https://zapier.com/apps/samcart/integrations
+- https://docs.stripe.com/stripe-apps
+- https://docs.stripe.com/stripe-apps/review-requirements
+- https://marketplace.stripe.com/
+- https://marketplace.stripe.com/appm/apps
+- https://stripe.com/partners/directory
+- https://stripe.com/partners/verified-partners
+- https://stripe.partners/sitemap.xml
 summary: null
 marketplace_apps:
 - marketplace: zapier
@@ -421,6 +428,52 @@ edges:
   direction: third-party
   category: Signatures
   partner_url: https://www.hellosign.com/api
+- partner_name: Stripe Partner Ecosystem
+  partner: stripe
+  partner_match: register
+  type: register
+  direction: partner-built
+  channel: standard-directory
+  relationship: standard-participant
+  evidence: https://stripe.partners/directory/samcart
+  category: Stripe ecosystem partner
+  contract_reference:
+    register: Stripe Partner Ecosystem directory (stripe.com/partners/directory -> stripe.partners, PartnerPage
+      SSR __NUXT_DATA__)
+    standard: Stripe Partner Ecosystem
+    spec_file: null
+    role: stripe-partner
+    registered_name: SamCart
+    register_id: samcart
+    partner_tier: null
+    matched_domain: samcart.com
+    matched_by: domain
+    identity_source: the directory's own website field for the partner (no lookup)
+    signal_note: 'participation only: directory listing (verification tier, if any, in partner_tier)'
+    context:
+      callouts:
+      - Automation
+      - Ecommerce
+      - Marketplaces
+      - Revenue optimization
+      stripe_products:
+      - Connect
+      - Payments
+      - Invoicing
+      - Billing
+      - Radar
+      - Sigma
+      - Tax
+      - Revenue Recognition
+      - Stripe Data Pipeline
+      - Instant Payouts
+      - Link
+      - Radar for Fraud Teams
+      location: 11850 West Market Place, Suite C, Fulton, Maryland
+    detected_by: sweep-stripe-app-marketplace.py
+    detected: '2026-10-21'
+  detected_by: sweep-stripe-app-marketplace.py
+  first_seen: '2026-10-21'
 templates:
 - title: Log SamCart orders to new rows in a Google Sheets spreadsheet
   url: https://zapier.com/apps/google-sheets/integrations/samcart/16061/log-samcart-orders-to-new-rows-in-a-google-sheets-spreadsheet
