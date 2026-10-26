@@ -1,0 +1,186 @@
+# SamCart (samcart)
+
+<!-- API-EVANGELIST-PROVENANCE:BEGIN -->
+> ### About this repository
+>
+> **This is not our API.** This repository is an independent, third-party profile of a company's
+> **publicly available** API surface, maintained by [API Evangelist](https://apievangelist.com).
+> API Evangelist does not operate, host, resell, or support this company's APIs, and is not
+> affiliated with or endorsed by the company unless stated on the profile.
+>
+> **Where the information came from.** Everything here is assembled from material a member of the
+> public can reach with a browser and no credentials — the company's own website, developer portal
+> and documentation, the specifications it publishes for public use (OpenAPI, AsyncAPI, JSON Schema,
+> `apis.json`, `llms.txt` and similar), its public repositories, and its public status, pricing and
+> changelog pages. **Nothing here is obtained by breaching a system, defeating an access control, or
+> using credentials of any kind.**
+>
+> **The rating is an independent assessment.** The Kin Score and Agent Readiness rating are
+> independently calculated scores of a company's *public* API artifacts, produced by API Evangelist
+> against a published rubric. They are not certifications, endorsements, security assessments, or
+> audits, and they score published artifacts — not the quality, safety, or security of the software.
+>
+> **Corrections, re-scores, and removal are free.** No partnership, contract, or purchase is
+> required, and you do not need to justify the request.
+>
+> - **Something wrong?** Open an issue on this repository, or email
+>   [info@apievangelist.com](mailto:info@apievangelist.com).
+> - **Published something new?** Ask for a re-score and we will re-run the rating.
+> - **Want the listing taken down?** Say so and we will honor it. The profile is reduced to your
+>   company name, a factual description, and a link to your own site, and the company is recorded as
+>   **unrated** — never scored zero for having asked.
+>
+> **Response times.** Acknowledgement within **one business day**; removal or restriction within
+> **two business days**; corrections and re-scores within **five business days**.
+>
+> **Not from the company, and here with a question?** You are welcome here — we would rather be the
+> front line and point you the right way than have a good report go nowhere. What this repository
+> can answer is narrow, though, so it is worth knowing who you are actually looking for:
+>
+> - **A question about how the API works, an account, billing, or a bug in the service** — that is
+>   the company's own support, not us. We profile this API; we do not operate it and cannot see
+>   your account.
+> - **A bug in an open-source project we only catalog** — file it on that project's own repository.
+>   This has happened with a real and correct bug report that reached us instead of the people who
+>   could fix it, which helped nobody.
+> - **Anything about this listing itself** — the description, the tags, the rating, a missing or
+>   wrong artifact — is ours. Open an issue here.
+> - **Not sure, or something general about API Evangelist or APIs.io** — open an issue on the
+>   [APIs.io Inbox](https://github.com/api-search/inbox) and we will route it.
+>
+> **This repository contains no software, and we will never ask you to download anything.** There is
+> no build, release, installer, or binary here — only text and machine-readable API descriptions, so
+> there is nothing here that can be "corrupt" or need "repairing". Any issue, comment, or email
+> claiming otherwise and offering a download link is not from us and is hostile. Do not follow the
+> link; it is a lure. Report it to GitHub and, if you like, tell us at
+> [info@apievangelist.com](mailto:info@apievangelist.com) so we can take it down.
+>
+> **On a security or compliance team?** Email
+> [info@apievangelist.com](mailto:info@apievangelist.com) with *security* in the subject line and
+> you will get a person, not a form. We will tell you exactly which public URLs this profile was
+> built from so your team can see the same surface we did, and we will take the listing down on
+> request while you work through it.
+>
+> Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
+<!-- API-EVANGELIST-PROVENANCE:END -->
+
+SamCart is a checkout and e-commerce platform for selling digital products, courses, memberships, and physical goods, built around a high-converting CheckoutOS checkout, one-click upsells, subscriptions, and a courses/members area. The **SamCart Public API (v1)** is a REST API at `https://api.samcart.com/v1` that provides programmatic access to a marketplace's orders, products, customers, subscriptions, charges, and refunds, plus write actions to cancel or schedule cancellation of subscriptions, refund charges, and update order custom fields.
+
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/samcart/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/samcart/refs/heads/main/apis.yml)
+
+## Access Model (Read This First)
+
+SamCart's API is **not fully self-serve**. Key facts, grounded in SamCart's knowledge base and developer docs:
+
+- **Authentication:** an API key passed in the **`sc-api`** request header.
+- **Getting a key:** API keys are **generated by the SamCart Support team on request** (contact `support@samcart.com`); access has historically been tied to a beta program.
+- **Plan gating:** the API rides on a **paid SamCart account**. Current plans are Core (~$79/mo), Pro (~$199/mo), and Enterprise (custom); SamCart retired the older Launch/Grow/Scale tiers, of which the legacy **Scale** tier historically exposed API access. Confirm current API availability per plan directly with SamCart.
+- **No separate API fee:** the API is a feature of the subscription, not a usage-metered product.
+
+Because of this, some endpoint **paths and payloads in this catalog are honestly modeled** to REST convention where SamCart's docs confirm the *capability* but not the exact wire shape. Confirmed vs. modeled endpoints are itemized in [`review.yml`](review.yml), and modeled operations carry an `x-endpoint-modeled` flag in the OpenAPI. Verify everything against [developer.samcart.com](https://developer.samcart.com/).
+
+## Tags
+
+- E-commerce
+- Checkout
+- Payments
+- Subscriptions
+- Digital Products
+- Courses
+
+## Timestamps
+
+- **Created:** 2026-07-05
+- **Modified:** 2026-07-05
+
+## APIs
+
+### SamCart Orders API
+
+Retrieve orders for a marketplace, filtered by date range or by funnel/upsell source, retrieve an individual order, and update order-level and upsell custom fields.
+
+- **Human URL:** [https://developer.samcart.com/](https://developer.samcart.com/)
+- **Base URL:** `https://api.samcart.com/v1`
+
+#### Properties
+
+- [Documentation](https://developer.samcart.com/)
+- [API Reference](https://help.samcart.com/support/solutions/articles/60000805533-samcart-api)
+- [OpenAPI](openapi/samcart-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/samcart.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/samcart.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SamCart Products API
+
+List the products in a SamCart marketplace and retrieve an individual product, including pricing and product type (one-time, subscription, or payment plan).
+
+- **Human URL:** [https://developer.samcart.com/](https://developer.samcart.com/)
+- **Base URL:** `https://api.samcart.com/v1`
+
+#### Properties
+
+- [Documentation](https://developer.samcart.com/)
+- [OpenAPI](openapi/samcart-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/samcart.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/samcart.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SamCart Customers API
+
+List customers in a marketplace and retrieve an individual customer by ID, including contact details and associated orders, charges, and subscriptions.
+
+- **Human URL:** [https://developer.samcart.com/](https://developer.samcart.com/)
+- **Base URL:** `https://api.samcart.com/v1`
+
+#### Properties
+
+- [Documentation](https://developer.samcart.com/)
+- [OpenAPI](openapi/samcart-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/samcart.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/samcart.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SamCart Subscriptions API
+
+Return all subscriptions within specified parameters, retrieve an individual subscription, cancel a subscription immediately, or schedule a cancellation for a future billing date.
+
+- **Human URL:** [https://developer.samcart.com/](https://developer.samcart.com/)
+- **Base URL:** `https://api.samcart.com/v1`
+
+#### Properties
+
+- [Documentation](https://developer.samcart.com/)
+- [OpenAPI](openapi/samcart-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/samcart.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/samcart.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+### SamCart Charges and Refunds API
+
+Retrieve charges (including failed charges) and individual charges, list all refunds or an individual refund, and issue a full refund against an individual charge.
+
+- **Human URL:** [https://developer.samcart.com/](https://developer.samcart.com/)
+- **Base URL:** `https://api.samcart.com/v1`
+
+#### Properties
+
+- [Documentation](https://developer.samcart.com/)
+- [OpenAPI](openapi/samcart-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/samcart.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/samcart.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+
+## Common Properties
+
+- [LinkedIn](https://www.linkedin.com/company/samcart)
+- [Website](https://www.samcart.com/)
+- [Documentation](https://developer.samcart.com/)
+- [Plans](plans/samcart-plans-pricing.yml)
+- [Rate Limits](rate-limits/samcart-rate-limits.yml)
+- [Fin Ops](finops/samcart-finops.yml)
+- [Blog](https://www.samcart.com/blog)
+
+## WebSocket Review
+
+SamCart does **not** expose a documented public WebSocket API. Event delivery is via outbound HTTP webhooks (the "Notify URL"), not a server-push WebSocket. See [`review.yml`](review.yml).
+
+## Maintainers
+
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
